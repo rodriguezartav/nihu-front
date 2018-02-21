@@ -61,7 +61,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify("development"),
         API_URL: process.env.MOCK ? JSON.stringify("http://localhost:3001") : JSON.stringify("http://localhost:3000"),
-        DOMAIN: JSON.stringify("http://staging.nihu.com.s3-website-us-east-1.amazonaws.com")
+        DOMAIN: JSON.stringify("http://nihu.link")
       }
     }),
     new webpack.HotModuleReplacementPlugin(),
