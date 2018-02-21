@@ -1,0 +1,46 @@
+{
+  "groupBy": "segments",
+  "principalColumn": "name",
+  "columns": [
+      {
+        "title": "name",
+        "name":"name"
+      },
+      {
+        "title":"code",
+        "name": "code"
+      },
+      {
+        "title":"description",
+        "name": "description"
+      },
+      {
+        "title": "segments",
+        "type":"radio",
+        "options": ["dia_hilco"],
+        "name": "Segmento"
+      }
+    ],
+  "newColumns": [
+    "Detalles del Codigo",
+    "name",
+    "code",
+    "description",
+    "segments"
+  ],
+  "editColumns": [
+    "Detalles del Codigo",
+    "name",
+    "code",
+    "description",
+    "segments"
+  ],
+  "views": [
+    {"type": "data", "name":"All","icon":"list"},
+    {"type":"data", "name":"Other","icon":"grid"}
+  ],
+  "route": "marketing/code",
+  "newComponent": "new",
+  "editComponnt": "edit"
+}
+

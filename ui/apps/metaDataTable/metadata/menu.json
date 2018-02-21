@@ -1,0 +1,39 @@
+{
+ "items": [{
+   "title": "Administracion",
+   "subtitle": "Listas",
+   "options": [{
+     "title": "Usuarios",
+     "link": "?app=users"
+   },
+   {
+        "title": "Logs",
+        "link": "?app=logs"
+      }
+   ]
+ },{
+   "title": "Tesoreria",
+   "subtitle": "Listas",
+   "options": [{
+     "title": "Facturas",
+     "link": "?app=cuentasporpagar"
+   },
+   {
+     "title": "Proveedores",
+     "link": "?app=proveedores"
+   }
+   ]
+ },{
+   "title": "Mercadeo",
+   "subtitle": "Listas",
+   "options": [{
+     "title": "Contents",
+     "link": "?app=contents"
+   },
+   {
+     "title": "Catalog Products",
+     "link": "?app=catalog_products"
+   }
+   ]
+ }]
+}

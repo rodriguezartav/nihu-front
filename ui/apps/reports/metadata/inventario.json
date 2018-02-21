@@ -1,0 +1,52 @@
+{
+  "route": "report/report/inventario",
+  "routeParam": "",
+  "columns": {
+    "summary.text": {
+      "label": "text",
+      "type": "string"
+    },
+    "summary.valor": {
+      "title": "Valor",
+      "type": "number",
+      "totalize": true
+    },
+    "inventario.valor": {
+      "title": "Valor",
+      "type": "number",
+      "totalize": true
+    },
+    "inventario.name": {
+      "title": "Producto",
+      "type": "string",
+      "width": 400
+    },
+    "inventario.inventarioactual": {
+      "title": "Inventario",
+      "type": "number",
+      "totalize": true
+    },
+    "inventario.familia": {
+      "title": "Familia",
+      "type": "string"
+    },
+    "inventario.subfamilia": {
+      "title": "SubFamilia",
+      "type": "string"
+    }
+  },
+  "components": {
+    "header": {
+      "numberPrefix": "R-",
+      "name": "Reporte Inventario",
+      "numberField": ""
+    },
+    "groupTable": {
+      "groupBy": ["inventario.familia", "inventario.subfamilia"],
+      "sortBy": "inventario.name",
+      "type": "items",
+      "key": "inventario",
+      "columns": ["inventario.name", "inventario.subfamilia", "inventario.inventarioactual", "inventario.valor"]
+    }
+  }
+}

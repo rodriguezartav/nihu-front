@@ -1,0 +1,70 @@
+{
+  "groupBy": "tipo_de_facebook",
+  "groupByFields": ["tipo_de_facebook","status"],
+  "principalColumn": "name",
+  "columns": {
+    "status":{
+      "type":"select",
+      "options": ["idea","programado","en proceso","completado"],
+      "order":["idea","programado","en proceso","completado"],
+      "title": "Estado",
+      "onEdit":"otherSave"
+    },
+    "tipo":{
+      "type":"select",
+      "options": ["Ad","Post"],
+      "order":["Ad","Post"],
+      "title": "Tipo",
+      "onEdit":"otherSave"
+    },
+    "name":{ "type":"text", "title":"Nombre" },
+    "description":{ "type":"text", "title":"Description" },
+    "content_url":{ "type":"text", "title":"Url del contenido" },
+    "photos":{ "type":"jsonbPhoto", "title":"Fotos", "key": "list" },
+    "resultado":{ "type":"text", "title":"Resultado" },
+    "aprendizaje":{ "type":"text", "title":"Aprendizaje" },
+    "tipo":{ "type": "text", "title":"Tipo" },
+    "tipo_de_facebook":{ "type": "text", "title":"Facebook" },
+    "published":{"type": "boolean", "title":"Publicado" },
+    "reach":{ "type":"number", "title":"Alcance" },
+    "likes":{ "type":"number", "title":"Likes" },
+    "delivery_date":{ "type":"date", "title":"Fecha Publicacion" },
+    "end_date":{ "type":"date", "title":"Fecha Finalizacion" }
+  },
+  "listColumns":[
+    "name",
+    "status",
+    "tipo_de_facebook",
+    "description",
+    "delivery_date",
+    "end_date",
+    "tipo",
+    "published",
+    "likes",
+    "reach",
+    "content_url",
+    "resultado",
+    "aprendizaje",
+    "photos"
+  ],
+  "listColumnsActions": [],
+  "editAction":
+    { "type": "newModalPage",
+      "route": "mercadeo/content/getColumnsForEdit",
+      "name": "Editar",
+      "title": "Editar producto"
+    }
+  ,
+  "createAction":
+    { "type": "newModalPage",
+      "route": "mercadeo/content/getColumnsForCreate",
+      "name": "Crear",
+      "title": "Crear producto"
+  },
+  "views":[
+    {"type": "data", "name":"all","icon":"list"}
+  ],
+  "route": "mercadeo/content",
+  "newComponent": "new",
+  "editComponnt": "edit"
+}

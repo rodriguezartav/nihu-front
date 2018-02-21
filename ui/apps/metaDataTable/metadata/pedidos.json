@@ -1,0 +1,131 @@
+{
+  "principalColumn": "__cliente__name",
+  "groupBy": "estado__c",
+  "editComponent":"edit",
+  "newComponent":"new",
+  "newColumns": [
+    "Detalles del Pedido",
+    "name",
+    "tipo",
+    "delivery_date",
+    "estado__c",
+    "total__c",
+    "saldo__c",
+    "cliente__c"
+  ],
+
+  "editColumns": {
+    "Archivados": ["Detalles del Pago","fechapagoprogramado__c"],
+    "Guardados": ["Detalles del Pago","estado__c"],
+    "Pendientes": "",
+    "Listos": []
+  },
+
+  "views":[
+    {"type": "data", "name":"All","icon":"list"},
+    {"type":"data", "name":"Other","icon":"grid"}
+  ],
+
+  "route": "salesforce/oportunidad",
+
+  "columns": [
+    {
+      "title": "cliente__c",
+      "type":"datalookup",
+      "itemKey": "sfid",
+      "principalColumn":"name",
+      "route": "salesforce/cliente",
+      "view":"All",
+      "name":"Cliente"
+    },
+    {
+      "title": "status",
+      "type":"radio",
+      "options": ["Pendiente","Calendarizado","Entregado"],
+      "name": "Estado"
+    },
+    {
+      "title": "total__c",
+      "type":"number",
+      "name":"Total"
+    }
+  ],
+
+  "kanbanColumns": [
+    {
+      "name": "Archivado",
+      "key": "Archivado",
+      "sum": "total__c",
+      "details": [
+        "id",
+        "referencia__c",
+        "estado__c",
+        {
+          "key": "saldo__c",
+          "title": "Saldo",
+          "format": "number"
+        }
+      ],
+      "rowActions": ["activar","borrar"]
+    },
+
+    {
+      "name": "Guardado",
+      "key": "Guardado",
+      "sum": "total__c",
+      "details": [
+        "referencia__c",
+        "estado__c",
+        {
+          "key": "saldo__c",
+          "title": "Saldo",
+          "format": "number"
+        }
+      ],
+      "rowActions": ["enviar"]
+    },
+
+    {
+      "name": "Pendiente",
+      "key": "Pendiente",
+      "sum": "total__c",
+      "details": [
+        "referencia__c",
+        {
+          "key": "saldo__c",
+          "title": "Saldo",
+          "format": "number"
+        }
+      ],
+      "rowActions": ["aprobar","espera", "archivar"]
+    },
+    {
+      "name": "Espera",
+      "key": "Espera",
+      "sum": "total__c",
+
+      "details": [
+        "referencia__c",
+        {
+          "key": "saldo__c",
+          "title": "Saldo",
+          "format": "number"
+        }
+      ],
+      "rowActions": ["aprobar", "archivar"]
+    },
+
+    {
+      "name": "Listo",
+      "key": "Aprobado",
+      "sum": "total__c",
+      "details": [
+        "id",
+        "referencia__c",
+        "monto__c",
+        "budget"
+      ],
+      "rowActions": ["facturar", "archivar" , "borrar"]
+    }
+  ]
+}

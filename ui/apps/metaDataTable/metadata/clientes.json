@@ -1,0 +1,46 @@
+{
+  "groupBy": "provincia",
+  "principalColumn": "nombre",
+  "columns": [
+
+      {
+        "title": "provincia",
+        "type":"radio",
+        "options": ["San Jose","Alajuela"],
+        "name": "Provincia"
+      },
+
+      {
+        "title": "nombre",
+        "name":"nombre"
+      },
+
+      {
+        "title": "ruta",
+        "name": "ruta"
+      },
+      {
+        "title": "diascredito",
+        "name": "diascredito",
+        "type": "number"
+      }
+    ],
+
+  "newColumns": [
+    "Detalles del Pago",
+    "nombre",
+    "cedula",
+    "provincia"
+  ],
+  "editColumns": ["Detalles del Pago","provincia","name","sfid"],
+  "views": [
+    {"type": "data", "name":"All","icon":"list"},
+    {"type":"data", "name":"Other","icon":"grid"}
+  ],
+  "route": "salesforce/cliente",
+  "newComponent": "clientes/new",
+  "editComponent": "clientes/edit"
+}
+
+
+

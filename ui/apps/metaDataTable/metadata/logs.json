@@ -1,0 +1,45 @@
+{
+  "groupByFields": ["status"],
+  "groupBy": "status",
+  "principalColumn": "status",
+  "columns": {
+    "user_name": {
+      "title": "user_name",
+      "maxWidth": 100
+    },
+
+    "path": {
+      "title": "path"
+    },
+    "status": {
+      "title": "status",
+      "type": "number"
+    },
+    "auths": {
+      "title": "auths",
+      "type": "arrayList",
+      "renderer": "logs/clienteRenderer"
+    },
+    "logs": {
+      "title": "logs",
+      "type": "arrayList",
+      "renderer": "logs/clienteRenderer"
+    },
+    "timestamp": {
+      "title": "timestamp",
+      "type": "timestamp",
+      "fromNow": true
+    }
+
+  },
+  "listColumnsActions": [],
+  "listColumns": [
+    "user_name", "status", "logs", "auths", "path", "timestamp"
+  ],
+  "views": [{
+    "type": "data",
+    "name": "latest?namespace_id=staging",
+    "icon": "list"
+  }],
+  "route": "admin/log"
+}

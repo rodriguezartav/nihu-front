@@ -1,0 +1,93 @@
+{
+  "groupBy": "tipo",
+  "groupByFields": ["tipo", "moneda"],
+  "principalColumn": "nombre",
+  "columns": {
+    "nombre": {
+      "title": "nombre",
+      "maxWidth": 190
+    },
+    "tipo": {
+      "type": "text",
+      "title": "tipo"
+    },
+    "plazo": {
+      "type": "number",
+      "title": "plazo"
+    },
+    "cedula": {
+      "type": "text",
+      "title": "cedula"
+    },
+    "moneda": {
+      "title": "moneda",
+      "type": "select",
+      "options": ["Colones", "Dolares", "Euros"]
+    },
+    "tipo_de_cedula": {
+      "title": "Tipo de Cedula",
+      "type": "select",
+      "options": ["Persona Fisica", "Persona Juridica"]
+    },
+    "email_notificacion": {
+      "type": "text",
+      "title": "email_notificacion"
+    },
+    "descripcion": {
+      "type": "text",
+      "title": "Descripcion"
+    },
+    "observaciones": {
+      "type": "text",
+      "title": "Observaciones"
+    },
+    "forma_de_pago": {
+      "type": "text",
+      "title": "Forma de Pago"
+    },
+    "activo": {
+      "type": "boolean",
+      "title": "Activo"
+    }
+
+  },
+  "listColumns": [
+    "nombre", 
+    "tipo", 
+    "tipo_de_cedula", 
+    "cedula", 
+    "moneda", 
+    "email_notificacion", 
+    "plazo",
+    "descripcion",
+    "observaciones",
+    "forma_de_pago",
+    "activo"
+  ],
+  "listColumnsActions": [],
+  "editAction": {
+    "type": "newModalPage",
+    "route": "cxp/proveedor/getColumnsForEdit",
+    "name": "Editar",
+    "title": "Editar"
+  },
+  "createAction": {
+    "type": "newModalPage",
+    "route": "cxp/proveedor/getColumnsForCreate",
+    "name": "Crear",
+    "title": "Crear Proveedor"
+  },
+  "listColumnsActions": [],
+  "views": [{
+    "type": "data",
+    "name": "all",
+    "icon": "list"
+  }, {
+    "type": "data",
+    "name": "Other",
+    "icon": "grid"
+  }],
+  "route": "cxp/proveedor",
+  "newComponent": "new",
+  "editComponnt": "edit"
+}

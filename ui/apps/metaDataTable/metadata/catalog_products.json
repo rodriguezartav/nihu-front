@@ -1,0 +1,46 @@
+{
+  "groupBy": "marca",
+  "groupByFields": ["marca"],
+  "principalColumn": "name",
+  "columns": {
+    "name":{ "type":"text", "title":"Nombre" },
+    "marca":{ "type":"text", "title":"Marca" },
+    "type":{ "type":"text", "title":"Tipo" },
+    "photos":{ "type":"jsonbPhoto", "title":"Fotos","key":"list" },
+    "bullets":{ "type":"arrayList", "title":"Bullets" , "key": "list"},
+    "updates":{ "type":"arrayList", "title":"Updates" , "key": "list"},
+    "category":{ "type":"text", "title":"Categoria" },
+    "attributos":{ "type": "arrayList", "title":"Atributos" , "key": "list"},
+    "active":{ "type":"boolean", "title":"Activo" }
+  },
+  "listColumns":[
+    "name",
+    "marca",
+    "category",
+    "type",
+    "photos",
+    "bullets",
+    "updates",
+    "attributos",
+    "active"
+  ],
+  "listColumnsActions": [],
+  "editAction":
+  { "type": "newModalPage",
+    "route": "mercadeo/catalog_product/getColumnsForEdit",
+    "name": "Pagar",
+    "title": "Editar contenido"
+  },
+  "createAction":
+  { "type": "newModalPage",
+    "route": "mercadeo/catalog_product/getColumnsForCreate",
+    "name": "Pagar",
+    "title": "Crear contenido"
+  },
+  "views":[
+    {"type": "data", "name":"all","icon":"list"}
+  ],
+  "route": "mercadeo/catalog_product",
+  "newComponent": "new",
+  "editComponnt": "edit"
+}

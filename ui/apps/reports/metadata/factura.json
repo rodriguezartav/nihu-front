@@ -1,0 +1,159 @@
+{
+  "copies": 3,
+  "route": "report/documento/factura",
+  "routeParam": "consecutivo",
+  "columns": {
+    "documento.consecutivo": {
+      "type": "string"
+    },
+    "documento.tipocobro": {
+      "type": "string",
+      "class": "title"
+    },
+    "documento.fechafacturacion": {
+      "type": "date"
+    },
+    "documento.clientename": {
+      "type": "string"
+    },
+    "documento.transporte": {
+      "type": "string",
+      "label": "Transporte"
+    },
+    "documento.referencia": {
+      "type": "string",
+      "label": "Pedido",
+      "class": "small"
+    },
+
+    "documento.observacion": {
+      "type": "string",
+      "label": "Observacion"
+    },
+    "documento.clientedireccion": {
+      "type": "string"
+    },
+    "documento.clientetelefono": {
+      "type": "string"
+    },
+    "documento.descripcionvence": {
+      "type": "string",
+      "class": "small"
+    },
+    "documento.fechavencimiento": {
+      "type": "date"
+    },
+    "documento.total": {
+      "title": "Total",
+      "type": "number"
+    },
+    "documento.subtotal": {
+      "title": "Total",
+      "type": "number"
+    },
+    "documento.impuesto": {
+      "title": "Total",
+      "type": "number"
+    },
+    "documento.descuento": {
+      "title": "Total",
+      "type": "number"
+    },
+
+    "movimiento.productocodigocorto": {
+      "title": "Codigo",
+      "type": "integer",
+      "size": "small",
+      "width": 50
+    },
+    "movimiento.productoname": {
+      "title": "Producto (codigo)",
+      "type": "string",
+      "width": 700
+    },
+    "movimiento.productocantidad": {
+      "title": "Cantidad",
+      "type": "number",
+      "width": 40,
+      "totalize": false
+    },
+    "movimiento.descuentounitario": {
+      "title": "Descuento",
+      "type": "integer",
+      "size": "small",
+      "align": "center",
+      "width": 40,
+      "totalize": false
+    },
+    "movimiento.productoprecio": {
+      "title": "Precio",
+      "type": "number",
+      "width": 50,
+      "totalize": false
+    },
+    "movimiento.total": {
+      "title": "Total",
+      "type": "number",
+      "width": 50,
+      "totalize": true
+    }
+  },
+  "components": {
+    "header": {
+      "numberPrefix": "R-",
+      "name": "Factura",
+      "numberField": "documento.consecutivo",
+      "fields": ["documento.fechafacturacion"]
+    },
+    "blocks": {
+      "block1": {
+        "title": "Cliente",
+        "fields": ["documento.clientename", "documento.referencia"]
+      },
+      "block2": {
+        "fields": ["documento.clientedireccion", "documento.clientetelefono"]
+      },
+      "block3": {
+        "fields": ["documento.tipocobro", "documento.descripcionvence", "documento.fechavencimiento"]
+      }
+    },
+    "table": {
+      "type": "items",
+      "key": "movimientos",
+      "columns": ["movimiento.productocantidad", "movimiento.productoname", "movimiento.productoprecio", "movimiento.descuentounitario", "movimiento.precio", "movimiento.total"]
+    },
+    "observation": {
+      "details": {
+        "fields": ["documento.transporte", "documento.observacion"]
+      },
+      "summary": {
+        "type": "total",
+        "rows": [{
+          "title": "SubTotal",
+          "name": "documento.subtotal",
+          "type": "number"
+        }, {
+          "title": "Descuento",
+          "name": "documento.descuento",
+          "type": "number"
+        }, {
+          "title": "Impuesto",
+          "name": "documento.impuesto",
+          "type": "number"
+        }, {
+          "title": "Total",
+          "name": "documento.total",
+          "type": "number"
+        }]
+      }
+    },
+    "footer": {
+      "firma": {
+        "position": "Comprador",
+        "text": "Renuncio a mi domicilio y trámite de juicio, doy por aceptadas la firma Original en poder del Cliente para trámite de pago y las condiciones del Código de Comercio en su Art. 460"
+      },
+      "banks": true,
+      "text": "Autorizado mediante el oficio No. 04-020-97 de la D.G. De T.D.S.J"
+    }
+  }
+}

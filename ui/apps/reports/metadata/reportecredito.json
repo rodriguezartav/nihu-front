@@ -1,0 +1,67 @@
+{
+  "route": "report/report/ventas",
+  "routeParam": "",
+  "columns": {
+    "summary.text": {
+      "label": "text",
+      "type": "string"
+    },
+    "summary.total": {
+      "title": "Total",
+      "type": "number"
+    },
+    "ventas.saldo": {
+      "title": "Saldo",
+      "type": "number",
+      "width": 100,
+      "totalize": true
+    },
+    "ventas.tipodedocumento": {
+      "title": "Tipo",
+      "type": "string"
+    },
+    "ventas.ruta": {
+      "title": "Ruta",
+      "type": "string"
+    },
+    "ventas.consecutivo": {
+      "title": "Consecutivo",
+      "type": "string"
+    },
+    "ventas.fechafacturacion": {
+      "title": "Fecha",
+      "type": "date"
+    },
+    "ventas.IsContado__c": {
+      "title": "Contado",
+      "type": "string"
+    }
+  },
+  "components": {
+    "header": {
+      "numberPrefix": "R-",
+      "name": "Reporte Ventas",
+      "numberField": ""
+    },
+    "table": {
+      "groupBy": "ventas.ruta",
+      "sortBy": "ventas.tipodedocumento",
+      "type": "items",
+      "key": "ventas",
+      "columns": ["ventas.consecutivo", "ventas.saldo", "ventas.iscontado"]
+    },
+    "observation": {
+      "details": {
+        "fields": ["summary.text"]
+      },
+      "summary": {
+        "type": "total",
+        "rows": [{
+          "title": "Total",
+          "name": "summary.total",
+          "type": "number"
+        }]
+      }
+    }
+  }
+}

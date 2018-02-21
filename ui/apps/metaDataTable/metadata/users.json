@@ -1,0 +1,78 @@
+{
+  "groupBy": "source",
+  "principalColumn": "name",
+  "dynamicColumns": [
+    {
+      "name":"name",
+      "type":"concat",
+      "columns": ["first_name","last_name"]
+   }
+  ],
+  "columns": {
+    "name":{
+      "title": "Name",
+      "dynamic": true,
+      "maxWidth": 200
+    },
+    "first_name":{
+       "title": "Nombre",
+       "maxWidth": 100
+     },
+      "last_name":{
+        "title": "Apellido",
+        "maxWidth": 100
+      },
+      "email":{
+        "title": "Email",
+        "maxWidth": 200
+      },
+      "mobile_phone":{
+        "title": "Telefono"
+      },
+      "active":{
+        "title": "Activo",
+        "type":"boolean"
+      },
+      "type":{
+        "title": "Tipo","type":"select","options":["cliente","empleado"]
+      },
+      "puesto":{
+        "title": "Puesto", "maxWidth":120
+      },
+      "rol":{
+        "title": "Rol"
+      },
+      "source":{"title":"Source", "maxWidth": 100},
+      "segments":{"title":"segments", "type": "list","separator":";"},
+      "created_at":{"title":"created at", "type":"timestamp" },
+      "updated_at":{"title":"updated at", "type": "timestamp"},
+      "created_by":{"title":"created by", "type":"relation", "titleField": "created_by_name"},
+      "updated_by":{"title":"updated by", "type":"relation", "titleField": "updated_by_name"}
+  },
+  "listColumns":[
+    "name","email","puesto","type","rol","mobile_phone","active","source","segments","created_at","updated_at","created_by","updated_by"
+  ],
+  "newColumns": [
+    "Detalles del Contacto",
+    "first_name",
+    "last_name",
+    "mobile_phone"
+  ],
+  "editColumns": [
+    "Detalles del Contacto",
+    "first_name",
+    "last_name",
+    "mobile_phone",
+    "email"
+  ],
+  "views": [
+    { "type":"data",  "name":"allEmpleados","icon":"list" },
+    { "type": "data", "name":"all","icon":"list" },
+    { "type":"data",  "name":"allClientes","icon":"list" }
+  ],
+  "route": "admin/contact",
+  "newComponent": "new",
+  "editComponents": [ {"path": "contactos/edit", "icon": "block_visitor", "name": "Control de acceso"}]
+}
+
+

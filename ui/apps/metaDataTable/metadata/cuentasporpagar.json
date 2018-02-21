@@ -1,0 +1,171 @@
+{
+  "groupBy": "estado",
+  "groupByFields": ["estado"],
+  "principalColumn": "proveedor_id",
+  "columns": {
+    "proveedor_id": {
+      "title": "Proveedor",
+      "type": "relation",
+      "titleField": "__proveedor__name",
+      "type2": "datalookup",
+      "itemKey": "id",
+      "principalColumn": "nombre",
+      "route": "cxp/proveedor",
+      "view": "all",
+      "editable": false,
+      "maxWidth": 190
+    },
+
+
+    "total": {
+      "type": "number",
+      "editable": false,
+      "title": "Total",
+      "totalize": true
+    },
+    "estado": {
+      "type": "select",
+      "options": ["Pendiente", "Calendarizado", "Entregado"],
+      "order": ["Pendiente", "Calendarizado", "Para Pagar", "Entregado", "Anulado"],
+      "title": "Estado",
+      "sumOnSort": "total",
+      "editable": false,
+      "onEdit": "otherSave"
+    },
+    "fecha_pago_programado": {
+      "type": "date",
+      "title": "Fecha Programado"
+    },
+    "fecha_vencimiento": {
+      "type": "date",
+      "editable": false,
+      "title": "Fecha Vencimiento"
+    },
+    "subtotal": {
+      "type": "number",
+      "title": "Sub Total",
+      "editable": false,
+      "totalize": true
+    },
+    "impuesto": {
+      "type": "number",
+      "title": "Impuesto",
+      "editable": false,
+      "totalize": true
+    },
+    "descuento": {
+      "type": "number",
+      "title": "Descuento",
+      "editable": false,
+      "totalize": true
+    },
+    "pago": {
+      "type": "number",
+      "editable": false,
+      "title": "Pago"
+    },
+    "observacion": {
+      "type": "text",
+      "title": "Observacion",
+      "maxWidth": 280
+    },
+    "tipo_de_documento": {
+      "type": "select",
+      "options": ["FA", "NC"],
+      "editable": false,
+      "title": "Tipo"
+    },
+    "forma_de_pago": {
+      "editable": false,
+      "type": "select",
+      "options": ["Deposito", "Cheque"],
+      "title": "Forma de Pago"
+    },
+    "referencia": {
+      "editable": false,
+      "title": "Referencia",
+      "type": "string"
+    },
+    "referencia_forma_pago": {
+      "editable": false,
+      "title": "Referencia forma de pago",
+      "type": "string"
+    },
+    "plazo": {
+      "editable": false,
+      "type": "integer",
+      "title": "Plazo"
+    },
+    "tipo_cambio_pago": {
+      "editable": false,
+      "type": "number",
+      "title": "Tipo de cambio pago"
+    },
+    "tipo_cambio": {
+      "editable": false,
+      "type": "number",
+      "title": "Tipo de Cambio"
+    },
+    "fecha_facturacion": {
+      "editable": false,
+      "type": "date",
+      "title": "Fecha"
+    }
+  },
+  "listColumns": [
+    "proveedor_id",
+    "referencia",
+    "total",
+    "fecha_facturacion",
+    "fecha_pago_programado",
+    "fecha_vencimiento",
+    "observacion",
+    "plazo",
+    "tipo_cambio",
+    "tipo_de_documento",
+    "subtotal",
+    "impuesto",
+    "descuento"
+  ],
+  "listColumnsActions": [{
+    "type": "newModal",
+    "route": "cxp/factura/getColumnsForPagar",
+    "icon": "success",
+    "name": "Pagar",
+    "title": "Crear Pago"
+  }, {
+    "type": "api",
+    "route": "cxp/factura/anular",
+    "icon": "ban",
+    "name": "Anular",
+    "title": "Anular Pago"
+  }],
+  "editAction": {
+    "type": "newModalPage",
+    "route": "cxp/factura/getColumnsForEdit",
+    "name": "Pagar",
+    "title": "Crear Pago"
+  },
+  "createAction": {
+    "type": "newModalPage",
+    "route": "cxp/factura/getColumnsForCreate",
+    "name": "Pagar",
+    "title": "Crear Pago"
+  },
+  "views": [{
+    "type": "data",
+    "name": "todo",
+    "icon": "list"
+  }, {
+    "type": "data",
+    "name": "locales",
+    "icon": "grid"
+  }, {
+    "type": "data",
+    "name": "internacionales",
+    "icon": "grid"
+  }],
+  "route": "cxp/factura",
+  "newComponent": "new",
+  "editComponnt": "edit"
+}

@@ -1,0 +1,59 @@
+{
+  "groupBy": "source",
+  "principalColumn": "first_name",
+  "columns": [
+      {
+        "title": "first_name",
+        "name":"first_name"
+      },
+      {
+        "title": "last_name",
+        "name":"last_name"
+      },
+      {
+        "title": "segments",
+        "name":"segments"
+      },
+      {
+        "title": "type",
+        "name":"type"
+      },
+      {
+        "title": "created_at",
+        "type": "date",
+        "name":"created_at"
+      },
+      {
+        "title": "mobile_phone",
+        "name":"mobile_phone"
+      },
+      {
+        "title": "division",
+        "name":"division"
+      }
+    ],
+  "newColumns": [
+    "Detalles del Contacto",
+    "first_name",
+    "last_name",
+    "mobile_phone"
+  ],
+  "editColumns": [
+    "Detalles del Contacto",
+    "first_name",
+    "last_name",
+    "mobile_phone",
+    "division",
+    "type",
+    "segments"
+  ],
+  "views": [
+    {"type": "data", "name":"all","icon":"list"},
+    {"type":"data", "name":"Other","icon":"grid"}
+  ],
+  "route": "admin/contact",
+  "newComponent": "new",
+  "editComponent": "edit"
+}
+
+

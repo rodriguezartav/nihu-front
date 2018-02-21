@@ -1,0 +1,46 @@
+{
+  "groupBy": "marca__c",
+  "principalColumn": "name",
+
+  "columns": [
+
+      {
+        "title": "marca__c",
+        "type":"radio",
+        "options": ["Yale","Hilco"],
+        "name": "Marca"
+      },
+
+      {
+        "title": "name",
+        "name":"name"
+      },
+      {
+        "title":"sfid",
+        "name": "sfid"
+      },
+      {
+        "title": "inventarioactual__c",
+        "name": "inventarioactual__c",
+        "type": "number"
+      }
+    ],
+
+  "newColumns": [
+    "Detalles del Pago",
+    "name",
+    "marca__c",
+    "inventarioactual__c"
+  ],
+  "editColumns": ["Detalles del Pago","marca__c","name","sfid"],
+  "views": [
+    {"type": "data", "name":"All","icon":"list"},
+    {"type":"data", "name":"Other","icon":"grid"}
+  ],
+  "route": "salesforce/producto",
+  "newComponent": "new",
+  "editComponent": "edit"
+}
+
+
+
