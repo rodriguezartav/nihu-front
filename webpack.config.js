@@ -60,8 +60,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        API_URL: process.env.NODE_ENV == "staging" ? JSON.stringify("https://staging-srv.rodcocr.com") : JSON.stringify("https://srv.rodcocr.com"),
-        DOMAIN: JSON.stringify("rodcocr.com")
+        API_URL: process.env.NODE_ENV == "staging" ? JSON.stringify("https://staging-srv.nihu.com") : JSON.stringify("https://srv.rodcocr.com"),
+        DOMAIN: JSON.stringify("http://staging.nihu.com.s3-website-us-east-1.amazonaws.com")
       }
     }),
     new CleanWebpackPlugin(["dist/*.js", "dist/*.css", "dist/*.html", "dist/*.map", "dist/*.gz"], {
