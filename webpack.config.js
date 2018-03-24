@@ -10,7 +10,8 @@ module.exports = {
   context: path.resolve(__dirname, './ui'),
   entry: {
     metaDataTable: ['./apps/metaDataTable/index.jsx'],
-    reports: ['./apps/reports/index.jsx']
+    reports: ['./apps/reports/index.jsx'],
+    public: ['./apps/public/index.jsx']
   },
   output: {
     filename: '[name].[hash].js',
@@ -84,8 +85,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'ui', 'template.html'),
-      filename: 'index.html',
+      filename: 'admin.html',
       chunks: ['metaDataTable', 'style'],
+      inject: 'body'
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'ui', 'public.html'),
+      filename: 'index.html',
+      chunks: ['public', 'style'],
       inject: 'body'
     }),
     new CompressionPlugin({

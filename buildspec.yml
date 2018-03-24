@@ -21,3 +21,4 @@ artifacts:
   type: zip
   files:
     - package.json
+

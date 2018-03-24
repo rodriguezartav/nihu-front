@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     metaDataTable: ['react-hot-loader/patch', 'webpack/hot/only-dev-server', 'webpack-dev-server/client?http://localhost:8080', './apps/metaDataTable/index.jsx'],
     reports: ['react-hot-loader/patch', 'webpack/hot/only-dev-server', 'webpack-dev-server/client?http://localhost:8080', './apps/reports/index.jsx'],
+    public: ['react-hot-loader/patch', 'webpack/hot/only-dev-server', 'webpack-dev-server/client?http://localhost:8080', './apps/public/index.jsx'],
   },
   output: {
     filename: '[name].js',
@@ -74,11 +75,16 @@ module.exports = {
       chunks: ['reports'],
       inject: 'body'
     }),
-
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'ui', 'template.html'),
-      filename: 'index.html',
+      filename: 'admin.html',
       chunks: ['metaDataTable', 'style'],
+      inject: 'body'
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'ui', 'public.html'),
+      filename: 'index.html',
+      chunks: ['public', 'style'],
       inject: 'body'
     }),
     new CopyWebpackPlugin([{
