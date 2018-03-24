@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../../../ion/apps/groupedTable/app';
+import App from '../../../ion/';
 
 import { AppContainer } from 'react-hot-loader';
 import Metadata from './metadata';
@@ -12,7 +12,7 @@ const render = (Component) => {
 
   ReactDOM.render(
     <AppContainer>
-      <Component ionName="Rodco" menu={Menu} {...App} />
+      <Component ionName="Nihu" menu={Menu} {...App} />
     </AppContainer>
 
    , document.getElementById('root')
@@ -20,10 +20,11 @@ const render = (Component) => {
 };
 
 
+
 render(App);
 
 if (module.hot){
-  module.hot.accept('../../../ion/apps/groupedTable/app', () => {
+  module.hot.accept('../../../ion', () => {
     render(App);
   })
 }
