@@ -10,7 +10,6 @@ module.exports = {
   context: path.resolve(__dirname, './ui'),
   entry: {
     metaDataTable: ['./apps/metaDataTable/index.jsx'],
-    reports: ['./apps/reports/index.jsx'],
     public: ['./apps/public/index.jsx']
   },
   output: {
@@ -77,12 +76,7 @@ module.exports = {
       filename: '[name].[hash].css',
       allChunks: true,
     }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'ui', 'report.html'),
-      filename: 'report.html',
-      chunks: ['reports'],
-      inject: 'body'
-    }),
+
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'ui', 'template.html'),
       filename: 'admin.html',
