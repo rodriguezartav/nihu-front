@@ -14,7 +14,7 @@ class App extends React.Component {
 
         <div className="slds-col">
 
-          <img src="http://via.placeholder.com/600x450"/>
+          <img src="./public/logo.png"/>
 
         </div>
 
